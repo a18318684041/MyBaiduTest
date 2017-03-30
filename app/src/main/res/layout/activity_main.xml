@@ -11,17 +11,17 @@
     android:orientation="vertical"
     tools:context="com.example.administrator.my_word.MainActivity">
 
-    
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请输入你想输出的内容"
-        android:id="@+id/edt"
-        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="点击说话"
         android:id="@+id/btn"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入你想输出内容"
+        android:id="@+id/edt"
         />
 </LinearLayout>
