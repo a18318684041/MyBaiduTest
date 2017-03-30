@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.baidu.tts.auth.AuthInfo;
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements SpeechSynthesizer
     private static final String TEXT_FILE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "bd_etts_text.dat";
     private SpeechSynthesizer mSpeechSynthesizer;
     private static final String TAG = "MainActivity";
+    private EditText edt;
+
+
 
 
     @Override
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements SpeechSynthesizer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button bt_start = (Button) findViewById(R.id.btn);
+        edt = (EditText) findViewById(R.id.edt);
         bt_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +91,8 @@ public class MainActivity extends AppCompatActivity implements SpeechSynthesizer
             Toast.makeText(this, "授权成功", Toast.LENGTH_LONG).show();
             mSpeechSynthesizer.initTts(TtsMode.MIX);
             mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_VOLUME, "9");
-            mSpeechSynthesizer.speak("Hello,合成成功了!");
+            String test = edt.getText().toString();
+            mSpeechSynthesizer.speak(test);
         } else {
             // 授权失败
             Toast.makeText(this, "授权失败", Toast.LENGTH_SHORT).show();
